@@ -93,9 +93,9 @@ script:
        exit 1
     fi
 
-#after_failure: 
-  #- |
-  #  for folder in ${TMPDIR}/*regtest*/vtc.*; do
-  #    cat $folder/INFO
-  #    cat $folder/LOG
-  #  done
+after_failure: 
+  - |
+    for folder in ${TMPDIR}/*regtest*/vtc.*; do
+      cat $folder/INFO
+      cat $folder/LOG
+    done
