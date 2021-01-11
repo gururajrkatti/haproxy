@@ -30,19 +30,19 @@ matrix:
   include:
   - os: linux
     arch: ppc64le
-    if: type == cron
+    if: type == push
     compiler: gcc
     env: TARGET=linux-glibc OPENSSL_VERSION=1.0.2u
     name: openssl-1.0.2
   - os: linux
     arch: arm64
-    if: type == push
+    if: type == cron
     compiler: clang
     env: TARGET=linux-glibc CC=clang-9
     name: openssl-1.1.1
   - os: linux
     arch: s390x
-    if: type == push
+    if: type == cron
     compiler: gcc
     env: TARGET=linux-glibc
     name: openssl-1.1.1
