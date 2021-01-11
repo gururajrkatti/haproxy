@@ -87,15 +87,15 @@ script:
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then ldd haproxy; fi
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then otool -L haproxy; fi
   - make reg-tests VTEST_PROGRAM=../vtest/vtest REGTESTS_TYPES=default,bug,devel
-  - |
-    if ls asan.log* 1>/dev/null 2>&1; then
-       cat asan.log*
-       exit 1
-    fi
+  #- |
+  #  if ls asan.log* 1>/dev/null 2>&1; then
+  #     cat asan.log*
+  #     exit 1
+  #  fi
 
-after_failure:
-  - |
-    for folder in ${TMPDIR}/*regtest*/vtc.*; do
-      cat $folder/INFO
-      cat $folder/LOG
-    done
+#after_failure: 
+  #- |
+  #  for folder in ${TMPDIR}/*regtest*/vtc.*; do
+  #    cat $folder/INFO
+  #    cat $folder/LOG
+  #  done
